@@ -1,0 +1,2 @@
+# SCUCCA
+record some insights
