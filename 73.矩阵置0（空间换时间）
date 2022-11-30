@@ -1,0 +1,27 @@
+本题要求空间换时间，所以要在遍历二维数组的时候就把需要置为0的行和列记录下来，这也比较容易。
+初始化两个以为数组，长度分别为数组的长和宽，一旦遇到为0的数，就将行和列标对应的数组标记。
+遍历完成后根据上面两个标记数组来决定行和列是否变为0
+
+func setZeroes(matrix [][]int) {
+	m := len(matrix)
+	n := len(matrix[0])
+	row := make([]bool, m)
+	col := make([]bool, n)
+	for i := 0; i < m; i++ {
+		for j := 0; j < n; j++ {
+			if matrix[i][j] == 0 {
+				row[i] = true
+				col[j] = true
+			}
+		}
+	}
+	for i := 0; i < m; i++ {
+		for j := 0; j < n; j++ {
+			if row[i] || col[j] {
+				matrix[i][j] = 0
+			}
+		}
+	}
+
+
+}
